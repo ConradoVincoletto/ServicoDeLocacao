@@ -6,6 +6,7 @@ namespace ServicoDeLocacao_API.Serviços
     {
         public double Taxa(double montante)
         {
+            
             if(montante <= 100.00)
             {
                 return montante * 0.2;
