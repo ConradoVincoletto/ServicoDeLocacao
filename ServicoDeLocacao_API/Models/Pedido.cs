@@ -1,18 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ServicoDeLocacao_API.Models
 {
-    public class Pedido
+    class Pedido
     {
         public double Pagamento { get; set; }
         public double Taxa { get; set; }
-        public double PagamentoBasico { get; }
 
-        public Pedido(double pagamentoBasico, double taxa)
+        public Pedido(double pagamento, double taxa)
         {
-            PagamentoBasico = pagamentoBasico;
+            Pagamento = pagamento;
             Taxa = taxa;
+        }
+        public double PagamentoTotal
+        {
+            get
+            {
+                return Pagamento + Taxa;
+            }
         }
     }
 }

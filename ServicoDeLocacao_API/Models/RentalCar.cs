@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ServicoDeLocacao_API.Models
 {
+    [Table("Locação do Carro")]
     public class RentalCar
     {
         [Key]
@@ -21,7 +22,8 @@ namespace ServicoDeLocacao_API.Models
         [Required]
         [Column("Veículo")]
         [StringLength(50)]
-        public Veiculo Veiculo { get; set; }
-        public Pedido Pedido { get; set; }
+        public string Veiculo { get; set; }
+
+        
     }
 }
