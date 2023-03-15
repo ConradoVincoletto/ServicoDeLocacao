@@ -1,4 +1,6 @@
-﻿namespace ServicoDeLocacao_API.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ServicoDeLocacao_API.Models
 {
 
     public class RentalCar
@@ -10,7 +12,7 @@
         public DateTime Final { get; set; }       
         public string Veiculo { get; set; }
 
-        public Pedido Pedidos { get; set; }
+        
 
 
     }
