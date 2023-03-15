@@ -1,51 +1,31 @@
-﻿using ServicoDeLocacao_API.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ServicoDeLocacao_API.Data;
+using ServicoDeLocacao_API.DTOs;
+using ServicoDeLocacao_API.Models;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace ServicoDeLocacao_API.Serviços
 {
+    
     public class ServicoDeLocacaoDeCarro
     {
-        [Key]
-        [Column("Número do Pedido")]
-        public int Id { get; set; }
 
 
-        [Column("Preço por hora")]
-        public double PrecoPorHora { get; set; }
-
-        [Column("Preço por dia")]
-        public double PrecoPorDia { get; set; }
-
-        private ITaxaDeServiço _taxaDeServico;
-
-        public ServicoDeLocacaoDeCarro(double precoPorHora, double precoPorDia, ITaxaDeServiço taxaDeServiço)
+        private readonly Contexto _contexto;
+        public ServicoDeLocacaoDeCarro(Contexto contexto)
         {
-            PrecoPorHora = precoPorHora;
-            PrecoPorDia = precoPorDia;
-            _taxaDeServico = taxaDeServiço;
+            _contexto = contexto;
         }
 
-        public void ProcessamentoDoPedido(RentalCar rentalCar)
+        public int Inserir(PedidoDTO pedidoDTO)
         {
-            TimeSpan duracao = rentalCar.Final.Subtract(rentalCar.Começo);
+            Pedido pedido = new Pedido();            
+            pedido.Taxa = pedidoDTO.Taxa;
+            pedido.Pagamento = pedidoDTO.Pagamento;
+            _contexto.Add(pedido);
+            _contexto.SaveChanges();
 
-            double pagamentoBasico = 0;
-            if (duracao.TotalHours <= 12.00)
-            {
-                pagamentoBasico = PrecoPorHora * Math.Ceiling(duracao.TotalHours);
-            }
-            else
-            {
-                pagamentoBasico = PrecoPorDia * Math.Ceiling(duracao.TotalDays);
-            }
-
-            double Taxa = _taxaDeServico.Taxa(pagamentoBasico);
-
-            rentalCar.Pedido = new Pedido(pagamentoBasico, Taxa);
+            return pedido.Id;
 
         }
-
     }
 }
