@@ -4,7 +4,8 @@
     {
         public int Id { get; set; }        
         public double Pagamento { get; set; }
-        public double Taxa { get; set; }       
-        
+        public double Taxa { get; set; }
+        public RentalCar RentalCars { get; set; }
+
     }
 }

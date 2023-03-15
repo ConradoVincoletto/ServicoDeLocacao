@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace ServicoDeLocacao_API.Models
+﻿namespace ServicoDeLocacao_API.Models
 {
-    
+
     public class RentalCar
     {
         
@@ -14,6 +10,8 @@ namespace ServicoDeLocacao_API.Models
         public DateTime Final { get; set; }       
         public string Veiculo { get; set; }
 
-        
+        public Pedido Pedidos { get; set; }
+
+
     }
 }

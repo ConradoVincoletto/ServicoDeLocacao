@@ -35,6 +35,19 @@ namespace ServicoDeLocacao_API.Data
                 .HasMaxLength(50)
                 .IsRequired();
 
+            modelBuilder.Entity<Pedido>()
+                .Property(p => p.Pagamento)
+                .IsRequired();
+
+            modelBuilder.Entity<Pedido>()
+                .Property(p => p.Taxa)
+                .IsRequired();
+
+            modelBuilder.Entity<RentalCar>()
+                .HasOne(f => f.Pedidos)
+                .WithOne(f => f.RentalCars)
+                .IsRequired();
+
 
         }
     }
