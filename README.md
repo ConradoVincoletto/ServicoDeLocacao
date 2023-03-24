@@ -16,13 +16,15 @@ Utilizei algumas propriedades especificas, como;
 # ScreenShots
 
 ### Classe Rental Car e as suas propriedades
-![image](https://user-images.githubusercontent.com/113942505/227637414-8114daaf-c490-4a1e-917d-8da343063215.png)
+![Captura de tela 2023-03-24 175024](https://user-images.githubusercontent.com/113942505/227640216-f3db3b8d-9da3-4fa4-ad2f-d587fb3fc443.png)
+
 
 ### Classe Contexto, utilizando o conceito de Fluent API
-![image](https://user-images.githubusercontent.com/113942505/227637613-e058072c-c17c-48fa-8376-ce10b5f6bdc9.png)
+![Captura de tela 2023-03-24 175218](https://user-images.githubusercontent.com/113942505/227640300-dd837a4a-91fe-4615-9c42-3f75745610d3.png)
+
 
 ### Resultado do cadastro no Response Body do Swwagger
-![image](https://user-images.githubusercontent.com/113942505/227637808-49d4fe94-6125-4e14-85c0-f3be6c6a78ac.png)
+![Captura de tela 2023-03-24 175336](https://user-images.githubusercontent.com/113942505/227640380-7d9cc6ae-758f-406e-92c2-1194e049d70b.png)
 
 # O que eu aprendi?
 
